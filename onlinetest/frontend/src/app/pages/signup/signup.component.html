@@ -1,0 +1,102 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt10">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img
+              src="../../../assets/logo.png"
+              alt="logo"
+              width="100px"
+              height="100px"
+            />
+          </div>
+          <h3 class="text-center">Register Here !!</h3>
+          <!-- {{ user | json }} -->
+          <form (ngSubmit)="formSubmit()">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Username</mat-label>
+              <input
+                [(ngModel)]="user.username"
+                type="text"
+                name="username"
+                matInput
+                placeholder="Enter Username"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Username must be unique</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>First Name</mat-label>
+              <input
+                [(ngModel)]="user.firstname"
+                name="firstName"
+                type="text"
+                matInput
+                placeholder="Enter First Name"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Last Name</mat-label>
+              <input
+                [(ngModel)]="user.lastname"
+                name="lastName"
+                type="text"
+                matInput
+                placeholder="Enter Last Name"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Email</mat-label>
+              <input
+                [(ngModel)]="user.email"
+                name="email"
+                type="email"
+                matInput
+                placeholder="Enter Email Address"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Phone Number</mat-label>
+              <input
+                [(ngModel)]="user.phone"
+                name="phone"
+                type="number"
+                matInput
+                placeholder="Enter Phone Number"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Password</mat-label>
+              <input
+                [(ngModel)]="user.password"
+                name="password"
+                type="password"
+                matInput
+                placeholder="Enter Password"
+              />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="accent">
+                Register
+              </button>
+              <button mat-raised-button color="primary" class="margin-left">
+                Reset
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
