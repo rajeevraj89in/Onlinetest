@@ -55,14 +55,23 @@ public class QuestionController {
 //		Set<Question> questionOfQuiz = this.questionService.getQuestionOfQuiz(quiz);
 //		return ResponseEntity.ok(questionOfQuiz);
 
-		Quiz quiz = new Quiz();
+		Quiz quiz = this.quizService.getQuiz(quizId);
 		Set<Question> questions = quiz.getQuestions();
+		//System.out.println("Data:" + questions);
 		List list = new ArrayList(questions);
 		if (list.size() > Integer.parseInt(quiz.getNumberOfQuestions())) {
 			list = list.subList(0, Integer.parseInt(quiz.getNumberOfQuestions()));
 		}
 		Collections.shuffle(list);
 		return ResponseEntity.ok(list);
+	}
+	
+	@GetMapping("/quiz/all/{quizId}")
+	public ResponseEntity<?> getQuestionOfQuizAdmin(@PathVariable("quizId") Long quizId) {
+		Quiz quiz = new Quiz();
+		quiz.setqId(quizId);
+		Set<Question> questionOfQuiz = this.questionService.getQuestionOfQuiz(quiz);
+		return ResponseEntity.ok(questionOfQuiz);
 	}
 
 	// Get Single Question

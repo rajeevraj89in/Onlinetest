@@ -1,5 +1,7 @@
 package com.onlinetest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.onlinetest.entity.exam.Category;
 import com.onlinetest.entity.exam.Quiz;
 import com.onlinetest.services.QuizService;
 
@@ -55,5 +58,25 @@ public class QuizController {
 	@DeleteMapping("/{quizId}")
 	public void deleteQuiz(@PathVariable("quizId") Long quizId) {
 		this.quizService.deleteQuiz(quizId);
+	}
+	
+	@GetMapping("/category/{cid}")
+	public List<Quiz> getQuizzesOfCategory(@PathVariable("cid") Long cid){
+		Category category = new Category();
+		category.setCid(cid);
+		return this.quizService.getQuizesOfCategory(category);
+		
+	}
+	
+	@GetMapping("/active")
+	public List<Quiz> getActiveQuizzes(){
+		return this.quizService.getActiveQuizes();
+	}
+	
+	@GetMapping("/category/active/{cid}")
+	public List<Quiz> getActiveQuizzessByCategory(@PathVariable("cid") Long cid){
+		Category category = new Category();
+		category.setCid(cid);
+		return this.quizService.getActiveQuizzesOfCategory(category);
 	}
 }
